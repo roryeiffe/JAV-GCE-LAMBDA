@@ -196,4 +196,4 @@ public class FI {
 ```
 
 ### Link to the project code if not provided in the same repository as the Guided Coding Example rundown
-[Root Directory](com/revature/)
+[Root Directory](src/com/revature/)
