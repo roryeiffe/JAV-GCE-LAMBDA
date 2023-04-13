@@ -7,7 +7,11 @@ public class Lambdas {
         // We instantiate an FI using lambda expressions
         // Note how the parameter/return types must match the FI:
         Power square = (int x) -> x * x;
-        Power cube = (int x) -> x * x * x;
+        // If our method implementation spans multiple lines, we need curly braces:
+        Power cube = (int x) -> {
+            int result = x * x * x;
+            return result;
+        };
         // Make sure that the lambda expressions adhere to the method in the functional interface:
         // Power print = (int x) -> "Hello";
 
@@ -25,17 +29,11 @@ public class Lambdas {
 
         // Use lambda expressions to give different implementations
         // of the Greet interface:
-        Greeter englishGreeter = (String name) -> {
-            System.out.println("Hello, " + name);
-        };
+        Greeter englishGreeter = (String name) -> System.out.println("Hello, " + name);
 
-        Greeter frenchGreeter = (String name) -> {
-            System.out.println("Bonjour, " + name);
-        };
+        Greeter frenchGreeter = (String name) -> System.out.println("Bonjour, " + name);
 
-        Greeter pirateGreeter = (String name) -> {
-            System.out.println("Ahoy, " + name + "!");
-        };
+        Greeter pirateGreeter = (String name) -> System.out.println("Ahoy, " + name + "!");
 
         // Call the greet method in the greeters that we created:
         englishGreeter.greet("Max");
