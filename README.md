@@ -25,16 +25,7 @@ public class Lambdas {
 
 ```
 
-### 2. Create 2 Functional Interfaces: Greeter and Power
-
-#### Greeter.java
-```java
-@FunctionalInterface
-interface Greeter {
-    // One abstract method, takes in a string doesn't return anything:
-    void greet(String x);
-}
-```
+### 2. Create 2 Functional Interfaces: Power and Greeter
 
 #### Power.java
 ```java
@@ -49,62 +40,78 @@ interface Power {
 }
 ```
 
+#### Greeter.java
+```java
+@FunctionalInterface
+interface Greeter {
+    // One abstract method, takes in a string doesn't return anything:
+    void greet(String x);
+}
+```
+
+
 ### 3. Create a main method in Lambdas.java
 - Show off Lambda functions to demonstrate the Functional Interfaces:
 - Point out the syntax of the lambda expressions
 #### Lambdas.java (main method):
 ```java
-    // We instantiate an FI using lambda expressions
-    // Note how the parameter/return types must match the FI:
-    Power square = (int x) -> x * x;
-    Power cube = (int x) -> x * x * x;
-    // Make sure that the lambda expressions adhere to the method in the functional interface:
-    // Power print = (int x) -> "Hello";
+class Lambdas {
+    public static void main(String[]args) {
 
-    // Invoking the lambda expressions:
-    int x = square.calculate(5);
-    int y = cube.calculate((6));
+        // We instantiate an FI using lambda expressions
+        // Note how the parameter/return types must match the FI:
+        Power square = (int x) -> x * x;
+        Power cube = (int x) -> x * x * x;
+        // Make sure that the lambda expressions adhere to the method in the functional interface:
+        // Power print = (int x) -> "Hello";
 
-    System.out.println(x);
-    System.out.println(y);
+        // Invoking the lambda expressions:
+        int x = square.calculate(5);
+        int y = cube.calculate((6));
 
-    // Use lambda expressions to give different implementations
-    // of the Greet interface:
-    Greeter englishGreeter = (String name) -> {
-        System.out.println("Hello, " + name);
-    };
+        System.out.println(x);
+        System.out.println(y);
 
-    Greeter frenchGreeter = (String name) -> {
-        System.out.println("Bonjour, " + name);
-    };
+        // Use lambda expressions to give different implementations
+        // of the Greet interface:
+        Greeter englishGreeter = (String name) -> {
+            System.out.println("Hello, " + name);
+        };
 
-    Greeter pirateGreeter = (String name) -> {
-        System.out.println("Ahoy, " + name + "!");
-    };
+        Greeter frenchGreeter = (String name) -> {
+            System.out.println("Bonjour, " + name);
+        };
 
-    // Call the greet method in the greeters that we created:
-    englishGreeter.greet("Max");
-    frenchGreeter.greet("Paul");
-    pirateGreeter.greet("Blackbeard");
+        Greeter pirateGreeter = (String name) -> {
+            System.out.println("Ahoy, " + name + "!");
+        };
+
+        // Call the greet method in the greeters that we created:
+        englishGreeter.greet("Max");
+        frenchGreeter.greet("Paul");
+        pirateGreeter.greet("Blackbeard");
+    }
+}
 ```
 
 ### 4. Create another method in Lambdas.java
 - This will demonstrate passing Functional Interfaces as arguments
 #### Lambdas.java (pre-existing code removed for brevity):
 ```java
-    public static void main(String[] args) 
-        
-        
-        // Passing these lambda expressions as arguments to a method
-        applyFuncAndPrint(square, 7);
-        applyFuncAndPrint(cube, 8);
-    }
-
-    // Take in an instance of the FI and an integer as a parameters
-    // and pass in the integer to the FI instance:
-    public static void applyFuncAndPrint(Power r, int x) {
-        int result = r.calculate(x);
-        System.out.println("The result is : " + result);
+    class Lambdas {
+    
+        public static void main(String[] args)
+            // Passing these lambda expressions as arguments to a method
+            applyFuncAndPrint(square, 7);
+            applyFuncAndPrint(cube, 8);
+        }
+    
+        // Take in an instance of the FI and an integer as a parameters
+        // and pass in the integer to the FI instance:
+        public static void applyFuncAndPrint(Power r, int x) {
+            int result = r.calculate(x);
+            System.out.println("The result is : " + result);
+        }
     }
 ```
 
