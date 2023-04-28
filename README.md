@@ -5,7 +5,8 @@
 Author:
     Rory Eiffe
 
-Reviewers: TBD
+Reviewers: 
+    Kyle Plummer
 
 ## Prerequisites
 
@@ -54,6 +55,7 @@ interface Greeter {
 - Show off Lambda functions to demonstrate the Functional Interfaces:
 - Point out the syntax of the lambda expressions
   - The single-line lambda expressions do not require curly braces
+  - Simple Lambda expressions don't even need an explicit return statement
 #### Lambdas.java (main method):
 ```java
 class Lambdas {
@@ -98,8 +100,9 @@ class Lambdas {
 #### Lambdas.java (pre-existing code removed for brevity):
 ```java
     class Lambdas {
-    
         public static void main(String[] args) {
+            // ...
+            
             // Passing these lambda expressions as arguments to a method
             applyFuncAndPrint(square, 7);
             applyFuncAndPrint(cube, 8);
